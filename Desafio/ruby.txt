@@ -1,0 +1,61 @@
+1 - Cria toda estrurura Ruby com nome 'Application ' 
+- usa o banco de dados 'postgresql '
+atraves da gem skip-turbolinks
+
+rails new Application -d postgresql --skip-turbolinks
+
+**
+rails new inverteLista -d postgresql --skip-turbolinks
+
+2 - Entra na pasta 
+
+cd Application 
+
+**
+cd Application inverteLista
+
+3 - Gera automaticamente todos os arquivos necessários para o CRUD (Create, Read, Update, Delete) 
+"name" como uma string para o nome do usuário.
+"date" como uma data para a data.
+"description" como um texto para a descrição.
+"done" como um booleano para indicar se está concluído ou não.
+
+rails g scaffold User name date:date description:text done:boolean
+
+**
+rails g scaffold name:string number:integer date:date float:decimal saudacao:string
+
+
+4 - Criar um BD PostgreSQL com base nas configurações especificadas no arquivo "database.yml" dentro do diretório "config".
+
+rails db:create
+
+5 -  Garante que o esquema do banco de dados esteja sempre sincronizado com a estrutura definida em seu aplicativo Rails.
+
+rails db:migrate
+
+6 - Nvim, abreviação de "Neovim", é um editor de texto altamente configurável
+
+nvim .
+
+7 - config > routes.rb > 
+
+root 'users#index'
+
+
+
+
+
+
+
+
+******************************************************
+* "Oi"
+* 5
+* 1/1/2005 14:00:00
+* 1.5
+* "Tchau"
+
+
+name:string number:integer date:date float:decimal saudacao:string
+

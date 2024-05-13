@@ -1,0 +1,105 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  return runApp(
+    MaterialApp(
+      home: StatelessWidgetExemplo("Olá Flutter - MaterialApp"),
+    )
+  );
+}
+class StatelessWidgetExemplo extends StatelessWidget {
+  final String _appBarTitle;
+  StatelessWidgetExemplo(this._appBarTitle) : super();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_appBarTitle),
+      ),
+      body: Center(
+        child: Text('Macoratti .net'),
+      ),
+    );
+  }
+}
+
+
+// Exemplo de uma linha (Row) com três colunas
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Column(
+      children: <Widget>[Icon(Icons.call), Text('Call')],
+    ),
+    Column(
+      children: <Widget>[Icon(Icons.directions), Text('Route')],
+    ),
+    Column(
+      children: <Widget>[Icon(Icons.share), Text('Share')],
+    ),
+  ],
+)
+
+// Exemplo de uma ListView com três ListTile
+
+ListView(
+
+  children: [
+
+    ListTile(
+
+      title: Text('Flutter'),
+
+      subtitle: Text('Tudo é um widget'),
+
+      leading: Icon(Icons.flash_on),
+
+      trailing: Icon(Icons.keyboard_arrow_right),
+
+    ),
+
+    ListTile(
+
+      title: Text('Dart'),
+
+      subtitle: Text('É fácil'),
+
+      leading: Icon(Icons.mood),
+
+      trailing: Icon(Icons.keyboard_arrow_right),
+
+    ),
+
+    ListTile(
+
+      title: Text('Firebase'),
+
+      subtitle: Text('Combina com Flutter'),
+
+      leading: Icon(Icons.whatshot),
+
+      trailing: Icon(Icons.keyboard_arrow_right),
+
+    ),
+
+  ],
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Homem na pedra na colina e belas montanhas em neblina ao pôr do sol colorido no outono. Dolomitas, Itália. Cara esportivo, cumes de montanha em nevoeiro, grama laranja e árvores, céu azul com sol no outono. Pedestrianismo - Imagem em Alta Resolução

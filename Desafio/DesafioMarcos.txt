@@ -33,8 +33,7 @@ resultante de seus elementos estará assim:
 * "Oi"
 
 Seu código não poderá utilizar nenhuma classe de coleção já pronta da
-linguagem que você escolher (por exemplo: em Java, classes como Vector,
-ArrayList, Hashtable, LinkedList, etc) ou de qualquer outra biblioteca externa.
+linguagem que você escolher (por exemplo: em Java, classes como Vector, ArrayList, Hashtable, LinkedList, etc) ou de qualquer outra biblioteca externa.
 
 A função "inverteLista" poderá utilizar apenas (além da própria lista
 passada como parâmetro de entrada) até 3 ponteiros auxiliares. Ela não
@@ -45,3 +44,16 @@ complexidade algorítmica deve ser O(n) (linear).
 Faça a documentação e testes que julgar necessários. Para este quesito pode-se usar ferramentas que a linguagem disponibiliza.
 
 Faça uma interface gráfica de entrada e saída dos dados.
+
+
+************************
+
+
+https://pt.wikibooks.org/wiki/Algoritmos_e_Estruturas_de_Dados/Lista_encadeada#:~:text=Uma%20lista%20encadeada%20simples%20%C3%A9,simples%20com%20tr%C3%AAs%20valores%20inteiros.
+
+
+******************************************
+
+"Faça uma interface gráfica de entrada e saída dos dados." Isso também não foi feito, preciso que faça uma tela em HTML para entrar os dados.
+
+Sugestão faz uma aplicação WEB, uma página HTML que envie para o "servidor" a requisição com os elementos, e a resposta é uma tela com a lista invertida.

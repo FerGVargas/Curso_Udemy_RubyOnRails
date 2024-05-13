@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenação de Lista | Laager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-image: url('https://static.wixstatic.com/media/a6fbe2f4441c450ea1d064e943cfb6f3.jpg/v1/fill/w_1423,h_688,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a6fbe2f4441c450ea1d064e943cfb6f3.jpg');
+            background-position: center;
+            height: 300px;
+            width: 100%;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 150px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 30px;
+            background-color: #007bff;
+            color: #fff;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        footer {
+            margin: 10px;
+            margin-top: 20%;
+            color: rgba(153, 151, 151, 0.938);
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <header></header>
+    <br>
+    <input type="text" id="valor" placeholder="Insira um valor">
+    <hr>
+    <button onclick="add()">Adicionar</button>
+    <button onclick="limpar()">Limpar</button>
+    <button onclick="ordenarCrescente()">Ordem Crescente &#9650;</button>
+    <button onclick="ordenarDecrescente()">Ordem Decrescente &#9660;</button>
+    <button onclick="misturar()">Misturar</button>
+    <ul id="valores"></ul>
+
+    <script>
+        function add() { //Adicionar lista
+          var entrada = document.getElementById("valor"); 
+          var listaValores = document.getElementById("valores"); 
+          var node = document.createElement("li"); 
+          var textNode = document.createTextNode(entrada.value);
+          node.appendChild(textNode); 
+          listaValores.appendChild(node);
+        }
+
+        function limpar() { // Limpar lista
+          let listaValores = document.getElementById('valores');
+          listaValores.innerHTML = '';
+
+          let input = document.getElementById('valor');
+          input.value = '';
+        } 
+
+        function ordenarCrescente() { // Ordenar lista em ordem crescente
+          ordenar(true);
+        }
+
+        function ordenarDecrescente() { // Ordenar lista em ordem decrescente
+          ordenar(false);
+        }
+
+        function ordenar(crescente) { // Ordenar lista
+          var listaValores = document.getElementById("valores");
+          let vetor = [];
+
+          for (let i = 0; i < listaValores.children.length; i++) {
+              vetor.push(parseFloat(listaValores.children[i].innerHTML));
+          }
+
+          vetor.sort(function(a, b) {
+            return (crescente ? a - b : b - a);
+          });
+
+          listaValores.innerHTML = vetor.reduce((html, valor) => html + "<li>" + valor + "</li>", "");
+        }
+
+        function misturar(){ //Mistura lista
+          var listaValores = document.getElementById("valores");
+          let vetor = [];
+          for (let i = 0; i < listaValores.children.length; i++) {
+              vetor.push(parseFloat(listaValores.children[i].innerHTML));
+          }
+          shuffle(vetor, vetor.length);
+          listaValores.innerHTML = vetor.reduce((html, valor) => html + "<li>" + valor + "</li>", "");
+        }
+
+        // Swap
+        const swap = (vector, pos1, pos2) => {
+          [vector[pos1], vector[pos2]] = [vector[pos2], vector[pos1]];
+        };
+
+        // Shuffle
+        const shuffle = (vector, swaps) => {
+          for (let i = 0; i < swaps; i++) {
+            let pos1 = Math.floor(Math.random() * vector.length);
+            let pos2 = Math.floor(Math.random() * vector.length);
+            swap(vector, pos1, pos2);
+          }
+        };
+
+        // Bubble Sort
+        const bubbleSort = vector => {
+          for (let i = 0; i < vector.length; i++) {
+            for (let j = 0; j < vector.length - i - 1; j++) {
+              if (vector[j] > vector[j + 1]) {
+                swap(vector, j, j + 1);
+              }
+            }
+          }
+        };
+
+        // Selection Sort
+        const selectionSort = vector => {
+          for (let i = 0; i < vector.length - 1; i++) {
+            let minIndex = i;
+            for (let j = i + 1; j < vector.length; j++) {
+              if (vector[j] < vector[minIndex]) {
+                minIndex = j;
+              }
+            }
+            if (minIndex !== i) {
+              swap(vector, i, minIndex);
+            }
+          }
+        };
+
+        // Quick Sort
+        const quickSort = (vector, start = 0, end = vector.length - 1) => {
+          if (start >= end) {
+            return;
+          }
+
+          let pivotIndex = particionamento(vector, start, end);
+          quickSort(vector, start, pivotIndex - 1);
+          quickSort(vector, pivotIndex + 1, end);
+        };
+
+        // Particionamento
+        const particionamento = (vector, start, end, pivot = vector[end]) => {
+          let i = start - 1;
+          for (let j = start; j <= end - 1; j++) {
+            if (vector[j] <= pivot) {
+              i++;
+              swap(vector, i, j);
+            }
+          }
+          swap(vector, i + 1, end);
+          return i + 1;
+        };
+    </script>
+    <footer>
+    <hr>
+        © 2024 by Fernanda G. Vargas
+    </footer>
+</body>
+</html>

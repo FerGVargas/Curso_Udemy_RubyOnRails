@@ -1,0 +1,5 @@
+<%= form_with(url: ordernar_path, method: :post) do |form| %>
+  <%= form.label :valor %>
+  <%= form.number_field :valor %>
+  <%= form.submit "Adicionar" %>
+<% end %>

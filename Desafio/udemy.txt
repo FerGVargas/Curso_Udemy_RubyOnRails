@@ -1,0 +1,20 @@
+Cria pasta 
+rails new crypto wallet
+
+Cria tabela 
+rails g scaffold Coin description:string acronym:string url_image:string
+
+rails g scaffold Desafio nome:text
+
+Criar o Banco de Dados
+rails db:create
+
+MIgrar o Banco de Dados
+rails db:migrate
+
+
+Rodando 
+rails s
+
+Criar um controller padrão 
+rails g controller welcome index

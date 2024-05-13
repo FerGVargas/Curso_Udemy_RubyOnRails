@@ -1,6 +1,22 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
+
+  # No seu controlador Rails
+def ordenar
+  valores = params[:valores]
+  sorted_valores = valores.sort_by(&:to_i)
+  render json: sorted_valores
+end
+
+# No seu controlador Rails
+def misturar
+  valores = params[:valores]
+  mixed_valores = valores.shuffle
+  render json: mixed_valores
+end
+
+
   # GET /users or /users.json
   def index
     @users = User.all
